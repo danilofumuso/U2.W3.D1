@@ -44,9 +44,57 @@ class Pet {
   }
 }
 
-const submit = document.getElementById("submitButton");
-submit.addEventListener(submit, function (e) {
+const createPetForm = document.getElementById("createPet"); //riferimento del form
+const petName = document.getElementById("petName"); //riferimenti degli input
+const ownerName = document.getElementById("ownerName");
+const species = document.getElementById("species");
+const breed = document.getElementById("breed");
+
+//array dove salvare i pet che poi confronteremo
+const pets = [];
+
+createPetForm.addEventListener("submit", function (e) {
   e.preventDefault();
-  const animalName = getElementById("petName");
-  const animalNamevalue = animalName.value;
+  const pet = new Pet(petName.value, ownerName.value, species.value, breed.value);
+
+  pets.push(pet); //pusho il pet con i valori del form nell'array pets.
+  createPetForm.reset(); //resetto i campi del form.
+
+  generateList();
 });
+
+// const generatePetList = function () {
+//   // recupero il riferimento alla lista (vuota)
+//   const list = document.querySelector(".list-group");
+//   // svuoto la lista in modo da partire pulito ogni volta
+//   list.innerHTML = "";
+// ciclo pets e genero un list-item per ogni pet
+//   pets.forEach((pet) => {
+//     list.innerHTML += `
+//             <li class="list-group-item ${
+//               pets.some(
+//                 // confrontiamo l'ownerName di QUESTO pet (pet) con ogni altro ownerName,
+//                 // facendo attenzione a _saltare_ noi stessi (altrimenti tornerebbe sempre true)
+//                 (p) => p.petName !== pet.petName && p.ownerName === pet.ownerName
+//               )
+//                 ? // se troviamo un match con un pet precedente, assegniamo una classe CSS
+//                   // a entrambi ("same-owner") che li colorerà
+//                   "same-owner"
+//                 : ""
+//             }">
+//                 ${pet.petName} - ${pet.species} ${pet.breed} - ${pet.ownerName}
+//             </li>
+//         `;
+//   });
+// };
+
+const generateList = function () {
+  const list = document.querySelector(".list-group");
+  list.innerHTML = ""; //svuota la lista così da non ricopiare gli elementi già creati!
+  pets.forEach((pet) => {
+    const listItem = document.createElement("li");
+    listItem.classList.add("list-group-item");
+    listItem.innerHTML = "Nome: " + pet.petName + " - Specie: " + pet.species + " - Razza: " + pet.breed + " - Proprietario: " + pet.ownerName;
+    list.appendChild(listItem);
+  });
+};

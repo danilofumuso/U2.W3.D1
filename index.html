@@ -4,31 +4,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pratica U2.W3.D1</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
-    <form>
+    <form id="createPet" class="m-3">
       <div>
-        <label for="petName">Nome del tuo animale:</label>
-        <input type="text" id="petName" placeholder="..." required />
+        <label class="fw-medium" for="petName">Nome del tuo animale:</label>
+        <input class="rounded-2" type="text" id="petName" placeholder="..." required />
       </div>
       <br />
       <div>
-        <label for="ownerName">Tuo nome:</label>
-        <input type="text" id="ownerName" placeholder="..." required />
+        <label class="fw-medium" for="ownerName">Tuo nome:</label>
+        <input class="rounded-2" type="text" id="ownerName" placeholder="..." required />
       </div>
       <br />
       <div>
-        <label for="species">Specie del tuo animale:</label>
-        <input type="text" id="species" placeholder="Cane, gatto, ..." required />
+        <label class="fw-medium" for="species">Specie del tuo animale:</label>
+        <input class="rounded-2" type="text" id="species" placeholder="Cane, gatto, ..." required />
       </div>
       <br />
       <div>
-        <label for="breed">Razza del tuo animale:</label>
-        <input type="text" id="breed" placeholder="Dalmata, siamese, ... " required />
+        <label class="fw-medium" for="breed">Razza del tuo animale:</label>
+        <input class="rounded-2" type="text" id="breed" placeholder="Dalmata, siamese, ... " required />
       </div>
       <br />
-      <button id="submitButton" type="submit">Invia</button>
+      <button class="btn btn-outline-success" type="submit">Invia</button>
     </form>
+    <div class="mt-4">
+      <ul class="list-group"></ul>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
     <script src="./JavaScript/script.js"></script>
   </body>
 </html>
